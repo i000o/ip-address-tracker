@@ -5,6 +5,9 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0"> <!-- displays site properly based on user's device -->
   <link rel="icon" type="image/png" sizes="32x32" href="./images/favicon-32x32.png">
   <link rel="stylesheet" href="dist/output.css"> 
+   <link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css"
+     integrity="sha256-p4NxAoJBhIIN+hmNHrzRCf9tD/miZyoHS5obTRR9BMY="
+     crossorigin=""/>
   <script defer href="js/script.js"></script>
   <title>IP Address Tracker</title>
 </head>
@@ -16,8 +19,8 @@
     <div class="content-wrapper flex flex-col justify-start text-center items-center absolute inset-0"> <!-- content wrapper-->
       <h1 class="text-white font-normal m-5 text-[1.4em]">IP Address Tracker</h1>
       <form class="input-wrapper flex flex-row h-30 min-w-[20em] mb-10"> <!-- input field wrapper--> 
-        <input type="text" class="bg-white rounded pt-1 pb-1 flex-1 rounded-r-none">
-        <button type="submit"> <!-- submit button -->
+        <input type="text" class="bg-white rounded pt-1 pb-1 flex-1 rounded-r-none" id="IPInput">
+        <button type="submit" id="submit"> <!-- submit button -->
           <img src="images/icon-arrow.svg" alt="arrow-icon" class="bg-black rounded rounded-l-none p-[14px]">
         </button>
       </form>
