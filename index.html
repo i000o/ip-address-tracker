@@ -5,10 +5,14 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0"> <!-- displays site properly based on user's device -->
   <link rel="icon" type="image/png" sizes="32x32" href="./images/favicon-32x32.png">
   <link rel="stylesheet" href="dist/output.css"> 
-   <link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css"
+  <link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css"
      integrity="sha256-p4NxAoJBhIIN+hmNHrzRCf9tD/miZyoHS5obTRR9BMY="
      crossorigin=""/>
-  <script defer href="js/script.js"></script>
+   <script defer src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js"
+     integrity="sha256-20nQCchB9co0qIjJZRGuk2/Z9VM+kNiyxNV1lvTlZBo="
+     crossorigin=""></script>
+  <script defer src="js/config.js"></script>
+  <script defer src="js/script.js"></script>
   <title>IP Address Tracker</title>
 </head>
 <body class="font-[Rubik] bg-[url('/images/pattern-bg-mobile.png')] bg-no-repeat bg-center w-full">
@@ -18,29 +22,29 @@
     </div>
     <div class="content-wrapper flex flex-col justify-start text-center items-center absolute inset-0"> <!-- content wrapper-->
       <h1 class="text-white font-normal m-5 text-[1.4em]">IP Address Tracker</h1>
-      <form class="input-wrapper flex flex-row h-30 min-w-[20em] mb-10"> <!-- input field wrapper--> 
-        <input type="text" class="bg-white rounded pt-1 pb-1 flex-1 rounded-r-none" id="IPInput">
+      <form class="input-wrapper flex flex-row h-30 min-w-[20em] mb-10" id="form"> <!-- input field wrapper--> 
+        <input type="text" class="bg-white rounded pt-1 pb-1 flex-1 rounded-r-none pl-5" id="IPInput">
         <button type="submit" id="submit"> <!-- submit button -->
           <img src="images/icon-arrow.svg" alt="arrow-icon" class="bg-black rounded rounded-l-none p-[14px]">
         </button>
       </form>
       <ol class="bg-white rounded p-5 min-w-[20em]">
-        <li> 
+        <li id="ip-item"> 
           <p>IP Address</p>
-          <!-- span or createElement-->
+          <!-- <span id="ip-display"class="font-semibold"></span> -->
         </li>
-        <li> 
+        <li id="location-item"> 
           <p>Location</p>
         </li>
-        <li> 
+        <li id="timezone-item"> 
           <p>Timezone</p>
-          <p>UTC</p> <!-- add offset value dynamically using the API -->
         </li>
-        <li> 
+        <li id="isp-item"> 
           <p>ISP</p>
         </li>
       </ol>
     </div>
+    <div id="map" class="h-[180-px]"></div>
   </main>
   <!-- <footer class="attribution">
     Challenge by <a href="https://www.frontendmentor.io?ref=challenge">Frontend Mentor</a>. 
