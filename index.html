@@ -15,36 +15,39 @@
   <script defer src="js/script.js"></script>
   <title>IP Address Tracker</title>
 </head>
-<body class="font-[Rubik] bg-[url('/images/pattern-bg-mobile.png')] bg-no-repeat bg-center w-full">
+<body class="font-[Rubik]">
   <main class="relative"> 
-    <div> 
-      <img src="images/pattern-bg-mobile.png" alt="pattern-background"> 
+    <div class="30vh"> <!-- this needs to become a picture element for art direction later -->
+      <img src="images/pattern-bg-mobile.png" alt="pattern-background" class="w-full h-full object-cover"> 
     </div>
-    <div class="content-wrapper flex flex-col justify-start text-center items-center absolute inset-0"> <!-- content wrapper-->
-      <h1 class="text-white font-normal m-5 text-[1.4em]">IP Address Tracker</h1>
-      <form class="input-wrapper flex flex-row h-30 min-w-[20em] mb-10" id="form"> <!-- input field wrapper--> 
-        <input type="text" class="bg-white rounded pt-1 pb-1 flex-1 rounded-r-none pl-5" id="IPInput">
+    <div class="content-wrapper flex flex-col justify-start text-center items-center absolute inset-0 z-10 pointer-events-none"> <!-- content wrapper-->
+      <h1 class="text-white font-normal m-5 text-[1.4em] pointer-events-auto">IP Address Tracker</h1>
+      <form class="input-wrapper flex flex-row h-[40px] min-w-[20em] mb-5 pointer-events-auto" id="form"> <!-- input field wrapper--> 
+        <input type="text" class="bg-white rounded-xl pt-1 pb-1 flex-1 rounded-r-none pl-5" placeholder="Enter an IP Address" id="IPInput"> <!-- do you want the placeholder text? -->
         <button type="submit" id="submit"> <!-- submit button -->
-          <img src="images/icon-arrow.svg" alt="arrow-icon" class="bg-black rounded rounded-l-none p-[14px]">
+          <img src="images/icon-arrow.svg" alt="arrow-icon" class="bg-black rounded-xl rounded-l-none p-[14px]">
         </button>
       </form>
-      <ol class="bg-white rounded p-5 min-w-[20em]">
+      <ol class="bg-white rounded-2xl p-5 min-w-[20em] pointer-events-auto">
         <li id="ip-item"> 
           <p>IP Address</p>
-          <!-- <span id="ip-display"class="font-semibold"></span> -->
+          <span id="ip-display"></span>
         </li>
         <li id="location-item"> 
           <p>Location</p>
+          <span id="location-display"></span>
         </li>
         <li id="timezone-item"> 
           <p>Timezone</p>
+          <span id="timezone-display"></span>
         </li>
         <li id="isp-item"> 
           <p>ISP</p>
+          <span id="isp-display"></span>
         </li>
       </ol>
     </div>
-    <div id="map" class="h-[180-px]"></div>
+    <div id="map" class="h-[500px] z-0"></div>
   </main>
   <!-- <footer class="attribution">
     Challenge by <a href="https://www.frontendmentor.io?ref=challenge">Frontend Mentor</a>. 
