@@ -16,7 +16,7 @@
 
 ## Purpose & Scope
 
-This is an IP Address Tracker which uses the [IP Geolocation API by Ipity](https://geo.ipify.org/) with map generation from [LeafletJS](https://leafletjs.com/). Its features include
+This is an IP Address Tracker which uses the [IP Geolocation API by Ipity](https://geo.ipify.org/) with map generation from [LeafletJS](https://leafletjs.com/). The design brief belongs to [Frontend Mentor](https://www.frontendmentor.io/challenges/expenses-chart-component-e7yJBUdjwt).
 
 - Takes user IP on page load and returns data on location, city, region, ISP and timezone relative to UTC.
 - Renders a map image with marker specifying location and surrounding area.
