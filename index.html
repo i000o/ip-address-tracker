@@ -17,18 +17,21 @@
 </head>
 <body class="font-[Rubik]">
   <main class="relative"> 
-    <div class="30vh"> <!-- this needs to become a picture element for art direction later -->
-      <img src="images/pattern-bg-mobile.png" alt="pattern-background" class="w-full h-auto object-cover l:max-h-[50%]"> 
+    <div class="30vh">
+      <picture>
+        <source media="(min-width: 768px)" srcset="images/pattern-bg-desktop.png">
+        <img src="images/pattern-bg-mobile.png" alt="pattern-background" class="w-full h-[20em] object-cover l:max-h-[50%]">
+      </picture>
     </div>
     <div class="content-wrapper flex flex-col justify-start text-center items-center absolute inset-0 z-10 pointer-events-none"> <!-- content wrapper-->
       <h1 class="text-white font-normal m-5 text-[1.4em] pointer-events-auto">IP Address Tracker</h1>
       <form class="input-wrapper flex flex-row h-[40px] min-w-[20em] mb-5 pointer-events-auto" id="form"> <!-- input field wrapper--> 
-        <input type="text" class="bg-white rounded-xl pt-1 pb-1 flex-1 rounded-r-none pl-5" id="IPInput" placeholder="Search for any IP Address or domain."> <!-- do you want the placeholder text? -->
+        <input type="text" class="bg-white rounded-xl pt-1 pb-1 flex-1 rounded-r-none pl-5 placeholder:text-[0.9em] md:w-[400px]" id="IPInput" placeholder="Search for any IP Address or domain"> <!-- do you want the placeholder text? -->
         <button type="submit" id="submit"> <!-- submit button -->
           <img src="images/icon-arrow.svg" alt="arrow-icon" class="bg-black rounded-xl rounded-l-none p-[14px]">
         </button>
       </form>
-      <ol class="bg-white rounded-2xl p-5 min-w-[20em] pointer-events-auto">
+      <ol class="bg-white rounded-2xl p-5 min-w-[20em] pointer-events-auto md:flex md:flex-row md:w-[90%] md:ml-20 md:mr-20 md:text-left md:justify-evenly">
         <li id="ip-item"> 
           <p>IP Address</p>
           <span id="ip-display"></span>
