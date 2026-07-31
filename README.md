@@ -24,7 +24,7 @@ This is an IP Address Tracker which uses the [IP Geolocation API by Ipity](https
 - Clears old markers from map on page load.
 - Shows error state on failure to retrieve.
 
-`#tailwind` `#vanillajs` `#leaflet` `#api`
+`#tailwind` `#vanillajs` `#leafletjs` `#api`
 
 ---
 
