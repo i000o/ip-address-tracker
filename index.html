@@ -16,7 +16,7 @@
   <title>IP Address Tracker</title>
 </head>
 <body class="font-[Rubik]">
-  <main class="relative"> 
+  <main class="relative md:flex md:flex-col md:min-h-screen"> 
     <div class="30vh">
       <picture>
         <source media="(min-width: 768px)" srcset="images/pattern-bg-desktop.png">
@@ -49,9 +49,9 @@
           <span id="isp-display"></span>
         </li>
       </ol>
-      <span class="error" id="error-span"></span>
+      <span class="error bg-white rounded-xl min-w-[20em] m-10 text-inherit text-[0.8em]" id="error-span"></span>
     </div>
-    <div id="map" class="h-[500px] z-0"></div>
+    <div id="map" class="h-[500px] z-0 md:flex-1"></div>
   </main>
   <!-- <footer class="attribution">
     Challenge by <a href="https://www.frontendmentor.io?ref=challenge">Frontend Mentor</a>. 
