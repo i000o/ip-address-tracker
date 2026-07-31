@@ -10,12 +10,26 @@ const customIcon = L.icon({
     iconUrl: "images/icon-location.svg"
 }); 
 
+let currentMarker = null; 
+const errorSpan = document.getElementById('error-span'); 
+
 async function fetchIP() { // queue this up 
     const ip = document.getElementById("IPInput").value; 
-    const response = await fetch(`https://geo.ipify.org/api/v2/country,city?apiKey=${key}&ipAddress=${ip}`); // uses key from config file to access API data 
-    const data = await response.json(); // .json method parses json strings into usable JS objects that we can access 
 
-    showIP(data); // when you have the data, call showIP and pass it this data 
+    try { 
+        const response = await fetch(`https://geo.ipify.org/api/v2/country,city?apiKey=${key}&ipAddress=${ip}`);
+
+        if (!response.ok) { 
+            throw new Error(`API responded with status ${response.status}`)
+        } 
+        
+        const data = await response.json(); 
+        showIP(data); 
+    } catch (error) { 
+        console.error("Failed to fetch IP data:", error); 
+        errorSpan.textContent = 'IP address not found. Please try again.'; 
+        errorSpan.style.display = 'block'; 
+    }
 }
 
 // function of how to update the values 
@@ -27,17 +41,22 @@ function updateDisplay(id, value) {
 
 // fetchIP(); // call the async first 
     
-function showIP(data) { // when showIP is used, follow the below instructions 
+function showIP(data) { 
 
     // RENDER MAP TO THE LOCATION OF IP GIVEN 
     map.setView([data.location.lat, data.location.lng], 13);
 
     // INCLUDE MARKER ON MAP RENDER
-    L.marker([data.location.lat, data.location.lng], { icon: customIcon}).addTo(map); 
+
+    if (currentMarker) { 
+        map.removeLayer(currentMarker); 
+    }
+   currentMarker =  L.marker([data.location.lat, data.location.lng], { icon: customIcon}).addTo(map); 
+
 
     // UPDATE DISPLAY ACCORDING TO THIS PATTERN 
-    updateDisplay("ip-display", data.ip); // dot notation since we don't concantenate here 
-    updateDisplay("location-display", `${data.location.city}, ${data.location.region} ${data.location.postalCode}`); // as opposed to here 
+    updateDisplay("ip-display", data.ip); 
+    updateDisplay("location-display", `${data.location.city}, ${data.location.region} ${data.location.postalCode}`); 
     updateDisplay("timezone-display", `UTC ${data.location.timezone}`); 
     updateDisplay("isp-display", data.isp); 
 }
