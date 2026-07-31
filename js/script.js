@@ -17,7 +17,8 @@ async function fetchIP() { // queue this up
     const ip = document.getElementById("IPInput").value; 
 
     try { 
-        const response = await fetch(`https://geo.ipify.org/api/v2/country,city?apiKey=${key}&ipAddress=${ip}`);
+        const ipParam = ip ? `&ipAddress=${ip}` : '';
+        const response = await fetch(`https://geo.ipify.org/api/v2/country,city?apiKey=${key}${ipParam}`);
 
         if (!response.ok) { 
             throw new Error(`API responded with status ${response.status}`)
@@ -66,3 +67,5 @@ form.addEventListener("submit", (e) => {
     e.preventDefault(); 
     fetchIP(); 
 }); 
+
+fetchIP(); 
