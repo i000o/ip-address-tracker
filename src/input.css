@@ -1,0 +1,10 @@
+@import url('https://fonts.googleapis.com/css2?family=Rubik:ital,wght@0,300..900;1,300..900&display=swap');
+@import 'tailwindcss'; 
+
+li p { 
+    @apply uppercase text-[#949494] font-semibold leading-10 tracking-widest text-[0.7em]; 
+}
+
+li span { 
+    @apply font-semibold; 
+}

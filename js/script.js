@@ -28,7 +28,7 @@ async function fetchIP() { // queue this up
         showIP(data); 
     } catch (error) { 
         console.error("Failed to fetch IP data:", error); 
-        errorSpan.textContent = 'IP address not found. Please try again.'; 
+        errorSpan.textContent = 'Invalid IP address. Please try again.'; 
         errorSpan.style.display = 'block'; 
     }
 }
@@ -67,5 +67,14 @@ form.addEventListener("submit", (e) => {
     e.preventDefault(); 
     fetchIP(); 
 }); 
+
+window.addEventListener('resize', () => {
+    map.invalidateSize();
+});
+
+// also call it once on load, in case initial layout shifts after Leaflet inits
+window.addEventListener('load', () => {
+    map.invalidateSize();
+});
 
 fetchIP(); 
