@@ -6,5 +6,5 @@ li p {
 }
 
 li span { 
-    @apply font-semibold; 
+    @apply font-semibold l:text-[1.4em]; 
 }
