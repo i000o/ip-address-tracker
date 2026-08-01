@@ -1,4 +1,4 @@
-var map = L.map('map').setView([51.505, -0.09], 13);  // This binding "map" stores the information pulled from the API for us to use here 
+var map = L.map('map').setView([51.505, -0.09], 13); 
 
 L.tileLayer('https://tile.openstreetmap.org/{z}/{x}/{y}.png', {
     maxZoom: 19,
@@ -33,14 +33,12 @@ async function fetchIP() { // queue this up
     }
 }
 
-// function of how to update the values 
+
 function updateDisplay(id, value) { 
     const el = document.getElementById(id); 
     el.textContent = value || '--'; 
     el.style.display = 'block'; 
 }
-
-// fetchIP(); // call the async first 
     
 function showIP(data) { 
 
@@ -72,7 +70,7 @@ window.addEventListener('resize', () => {
     map.invalidateSize();
 });
 
-// also call it once on load, in case initial layout shifts after Leaflet inits
+
 window.addEventListener('load', () => {
     map.invalidateSize();
 });
