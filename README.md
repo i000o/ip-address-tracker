@@ -58,5 +58,6 @@ The map appeared cut off/incorrectly sized after adjusting surrounding layout (b
 
 - Add loading state while the fetch is in progress, so the UI doesn't appear frozen between submit and response.
 - Improve error handling to distinguish between "invalid IP format" and "API/network failure" rather than a single generic error message.
+- Improve the style of the error span to flow better with the rest of the page responsively.
 
 ---
